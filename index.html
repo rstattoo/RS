@@ -1,37 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
     <title>RS</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="style.css" />
 
-    <!-- Preload custom font for performance -->
-    <link rel="preload" as="font" href="Assets/Angelwish.ttf" type="font/ttf">
+    <!-- Responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External files -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <!-- Background Container (holds everything) -->
-    <div class="background-container">
-        <!-- Menu Bar with 2 buttons -->
-        <nav class="menu-bar">
-            <button class="studio-btn">STUDIO</button>
-            <button class="gallery-btn">GALLERY</button>
-        </nav>
+    <!-- Menu bar -->
+    <nav class="menu-bar">
+        <a id="studioBtn" class="menu-btn">STUDIO</a>
+        <a id="galleryBtn" class="menu-btn">GALLERY</a>
+    </nav>
 
-        <!-- Info Box Overlay (hidden by default) -->
-        <div id="info-box" class="info-box"></div>
+    <!-- Modal / info box (hidden by default) -->
+    <div id="modal" class="modal hidden"></div>
 
-        <!-- Bottom Links (Email, Instagram, Facebook) -->
-        <footer class="bottom-links">
-            <a href="mailto:your-email@example.com" class="link">Email</a>
-            <a href="https://instagram.com/your-handle" target="_blank" class="link">Instagram</a>
-            <a href="https://facebook.com/your-page" target="_blank" class="link">Facebook</a>
-        </footer>
-    </div>
+    <!-- Footer with links -->
+    <footer class="footer">
+        <a href="mailto:youremail@example.com" target="_blank">✉️</a>
+        <a href="https://instagram.com/yourprofile" target="_blank">📸</a>
+        <a href="https://facebook.com/yourpage" target="_blank">👍</a>
+    </footer>
 
-    <!-- JavaScript for interactivity -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

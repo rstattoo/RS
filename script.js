@@ -1,69 +1,49 @@
-// Get references to DOM elements
-const studioBtn = document.querySelector('.studio-btn');
-const galleryBtn = document.querySelector('.gallery-btn');
-const infoBox = document.getElementById('info-box');
+/* --------------------------------------------------------------
+   Grab DOM elements
+-------------------------------------------------------------- */
+const studioBtn = document.getElementById('studioBtn');
+const galleryBtn = document.getElementById('galleryBtn');
+const modal = document.getElementById('modal');
 
-// Function to show the info box with content for STUDIO
-function showStudioInfo() {
-    // Close any currently open info box
-    closeInfoBox();
+/* --------------------------------------------------------------
+   Content to display – change these strings when you have data
+-------------------------------------------------------------- */
+const content = {
+    STUDIO: `<h2>Studio</h2>
+             <p>This is where the studio information will go.</p>`,
 
-    // Create and append content for Studio button
-    const studioContent = `
-        <div class="info-box-content">
-            <h2>STUDIO</h2>
-            <p>This is the information about your STUDIO. You can add more details here.</p>
-            <!-- Gallery section for STUDIO images -->
-            <div class="gallery-section">
-                <img src="Assets/studio-image1.jpg" alt="Studio Image 1" />
-                <img src="Assets/studio-image2.jpg" alt="Studio Image 2" />
-                <img src="Assets/studio-image3.jpg" alt="Studio Image 3" />
-            </div>
-        </div>
-    `;
-    
-    infoBox.innerHTML = studioContent;
-    infoBox.style.display = 'block';
+    GALLERY: `<h2>Gallery</h2>
+              <p>Images will be displayed here once added.</p>`
+};
+
+/* --------------------------------------------------------------
+   Utility functions
+-------------------------------------------------------------- */
+function openModal(type) {
+    modal.innerHTML = content[type];
+    modal.classList.remove('hidden');
 }
 
-// Function to show the info box with content for GALLERY
-function showGalleryInfo() {
-    // Close any currently open info box
-    closeInfoBox();
-
-    // Create and append content for Gallery button
-    const galleryContent = `
-        <div class="info-box-content">
-            <h2>GALLERY</h2>
-            <p>This is the information about your GALLERY. You can add more details here.</p>
-            <!-- Gallery section for GALLERY images -->
-            <div class="gallery-section">
-                <img src="Assets/gallery-image1.jpg" alt="Gallery Image 1" />
-                <img src="Assets/gallery-image2.jpg" alt="Gallery Image 2" />
-                <img src="Assets/gallery-image3.jpg" alt="Gallery Image 3" />
-            </div>
-        </div>
-    `;
-    
-    infoBox.innerHTML = galleryContent;
-    infoBox.style.display = 'block';
+function closeModal() {
+    modal.classList.add('hidden');
 }
 
-// Function to close the info box
-function closeInfoBox() {
-    // Clear content and hide the box
-    infoBox.innerHTML = '';
-    infoBox.style.display = 'none';
-}
+/* --------------------------------------------------------------
+   Event listeners
+-------------------------------------------------------------- */
+studioBtn.addEventListener('click', () => {
+    if (!modal.classList.contains('hidden')) closeModal();
+    openModal('STUDIO');
+});
 
-// Add click event listeners for buttons
-studioBtn.addEventListener('click', showStudioInfo);
-galleryBtn.addEventListener('click', showGalleryInfo);
+galleryBtn.addEventListener('click', () => {
+    if (!modal.classList.contains('hidden')) closeModal();
+    openModal('GALLERY');
+});
 
-// Add click event listener to the info box itself to close it when clicked anywhere inside
-infoBox.addEventListener('click', function(event) {
-    // Check if the click target is not a button or link, then close the box
-    if (!event.target.closest('.studio-btn') && !event.target.closest('.gallery-btn')) {
-        closeInfoBox();
-    }
+/* Close modal when clicking anywhere outside it */
+document.body.addEventListener('click', (e) => {
+    // If click is on the modal itself, ignore
+    if (e.target.closest('.modal') || e.target.closest('.menu-btn')) return;
+    closeModal();
 });
