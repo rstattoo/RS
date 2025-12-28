@@ -1,0 +1,105 @@
+/* ----------------------------------------------
+   General reset & layout
+---------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Angelwish', sans-serif;
+    color: #fff;
+    background-image: url('../assets/RS.png');
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+/* ----------------------------------------------
+   Menu bar
+---------------------------------------------- */
+.menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Transparent background */
+    background: rgba(0, 0, 0, 0);
+    z-index: 10;
+}
+
+.menu-bar nav {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 50%;
+    text-align: center;
+}
+
+/* ----------------------------------------------
+   Content area (where pop‑ups will be inserted)
+---------------------------------------------- */
+#content {
+    position: relative; /* so that the popup is positioned relative to it */
+    min-height: calc(100vh - 120px); /* leave space for header & footer */
+    padding-top: 4rem; /* give some breathing room below the fixed menu */
+}
+
+/* ----------------------------------------------
+   Popup box
+---------------------------------------------- */
+.popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    width: 600px;
+    background: rgba(0, 0, 0, 0.33);
+    padding: 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px); /* optional nice effect */
+}
+
+/* ----------------------------------------------
+   Footer links
+---------------------------------------------- */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.footer a {
+    color: #fff;
+    margin: 0 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+/* ----------------------------------------------
+   Responsive tweaks
+---------------------------------------------- */
+@media (max-width: 600px) {
+    .menu-btn {
+        font-size: 1.2rem;
+    }
+    .popup {
+        width: 90vw;
+        padding: 1.5rem;
+    }
+}
