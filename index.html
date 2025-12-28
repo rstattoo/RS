@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>RS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>RS</title>
 
-<link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
+    <!-- Mobile viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom font preload -->
+    <link rel="preload" href="assets/Angelwish.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-  <!-- Background wrapper -->
-  <div class="bg-wrapper">
 
-    <!-- Navigation bar -->
-    <header class="navbar">
-      <button data-target="studio" class="nav-btn">STUDIO</button>
-      <button data-target="gallery" class="nav-btn">GALLERY</button>
-    </header>
+<!-- 1. Menu bar -->
+<header class="menu-bar">
+    <nav>
+        <button id="btn-studio">STUDIO</button>
+        <button id="btn-gallery">GALLERY</button>
+    </nav>
+</header>
 
-    <!-- Pop‑up panels (hidden by default) -->
-    <section id="studio" class="panel hidden">
-      <h2>Studio Info</h2>
-      <p>Lorem ipsum dolor sit amet...</p>
-    </section>
+<!-- 2. Overlay box (hidden by default) -->
+<div id="overlay" class="overlay hidden"></div>
 
-    <section id="gallery" class="panel hidden">
-      <h2>Gallery</h2>
-      <!-- Placeholder – replace with real images later -->
-      <div class="gallery-grid">
-        <img src="assets/placeholder.png" alt="">
-      </div>
-    </section>
+<!-- 3. Footer links – now using Angelwish font -->
+<footer class="footer">
+    <a href="mailto:info@example.com" target="_blank"><span>EMAIL</span></a>
+    <a href="https://instagram.com/yourprofile" target="_blank"><span>INSTAGRAM</span></a>
+    <a href="https://facebook.com/yourpage" target="_blank"><span>FACEBOOK</span></a>
+</footer>
 
-    <!-- Social links -->
-    <footer class="social-links">
-      <a href="#" aria-label="Email"><img src="assets/icons/email.svg" alt=""></a>
-      <a href="#" aria-label="Instagram"><img src="assets/icons/instagram.svg" alt=""></a>
-      <a href="#" aria-label="Facebook"><img src="assets/icons/facebook.svg" alt=""></a>
-    </footer>
-
-  </div> <!-- /.bg-wrapper -->
+<!-- 4. JavaScript -->
+<script src="js/script.js"></script>
 </body>
 </html>
