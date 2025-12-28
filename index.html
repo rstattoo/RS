@@ -1,44 +1,42 @@
-<!DOCTYPE html>
+We need to rewrite entire file with bigger buttons. So add CSS rule .navBtn larger: e.g., font-size: 1.5rem; padding: 1rem 2rem; etc. Also maybe set button style globally? So just add style within style tags. We'll modify inline style.
+
+Let's rewrite. Make navBtn bigger. Provide entire file.
+
+We must not explain. Just code. Use same HTML but with updated CSS. We'll keep same structure but modify navBtn style. Add style: .navBtn {font-size:1.5rem;padding:1rem 2rem;} Also maybe style to make full width. Keep existing style.
+
+We'll rewrite the whole file. Ensure no explanation. Provide full file. Let's do.<|end|><|start|>assistant<|channel|>final<|message|><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>RS Studio / Gallery</title>
-
 <link rel="stylesheet" href="style.css">
-
-<!-- Font -->
 <style>
 @font-face {
     font-family: 'Angelwish';
     src: url('Assets/Angelwish.ttf') format('truetype');
 }
 body, button, a {font-family:'Angelwish';}
+.navBtn {font-size:1.5rem;padding:1rem 2rem;margin:0.5rem;}
 </style>
 </head>
 <body>
-
 <header id="topbar">
   <button class="navBtn" data-target="#studioBox">STUDIO</button>
   <button class="navBtn" data-target="#galleryBox">GALLERY</button>
 </header>
-
-<!-- Info boxes (hidden by default) -->
 <div id="studioBox" class="infoBox">
   <h2>Studio Information</h2>
   <p>Coming soon…</p>
 </div>
-
 <div id="galleryBox" class="infoBox">
   <h2>Gallery</h2>
   <p>Images will appear here.</p>
 </div>
-
 <footer id="bottomLinks">
   <a href="mailto:youremail@example.com">EMAIL</a>
   <a href="https://instagram.com/yourprofile" target="_blank">INSTAGRAM</a>
   <a href="https://facebook.com/yourpage" target="_blank">FACEBOOK</a>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
