@@ -1,0 +1,70 @@
+/* ---------- Global reset & basic styles ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body, html {
+    margin: 0; padding: 0;
+    font-family: 'Angelwish', sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    background: url('Assets/RS.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ---------- Menu bar (transparent) ---------- */
+.menu-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(255,255,255,0); /* fully transparent */
+    z-index: 10;
+}
+.nav-btn {
+    background: none;
+    border: none;
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.nav-btn:hover { transform: scale(1.05); }
+
+/* ---------- Info box (black with 33% opacity) ---------- */
+.info-box {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(300px, 80vw, 600px);
+    max-height: 80vh;
+    padding: 2rem;
+    background: rgba(0,0,0,0.33);
+    color: #fff;
+    overflow-y: auto;
+    border-radius: 8px;
+    z-index: 20;
+}
+.hidden { display: none; }
+
+/* ---------- Footer links (bottom) ---------- */
+.footer-links {
+    position: fixed;
+    bottom: 1rem; left: 0; right: 0;
+    text-align: center;
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+}
+.link-text {
+    margin: 0 1rem;
+    color: #fff;
+    text-decoration: none;
+}
+.link-text:hover { text-decoration: underline; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 600px) {
+    .nav-btn { font-size: 2rem; }
+    .footer-links { font-size: 1rem; }
+}

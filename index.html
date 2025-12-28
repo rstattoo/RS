@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>RS</title>
+<meta charset="UTF-8">
+<title>RS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Responsive meta -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Custom font -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- fallback -->
+<style>
+  @font-face {
+    font-family: 'Angelwish';
+    src: url('Assets/Angelwish.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
 
-    <!-- External files -->
-    <link rel="stylesheet" href="style.css">
+<!-- Main styles -->
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Menu bar -->
-    <nav class="menu-bar">
-        <a id="studioBtn" class="menu-btn">STUDIO</a>
-        <a id="galleryBtn" class="menu-btn">GALLERY</a>
-    </nav>
 
-    <!-- Modal / info box (hidden by default) -->
-    <div id="modal" class="modal hidden"></div>
+<header class="menu-bar">
+  <button id="btnStudio" class="nav-btn">STUDIO</button>
+  <button id="btnGallery" class="nav-btn">GALLERY</button>
+</header>
 
-    <!-- Footer with links -->
-    <footer class="footer">
-        <a href="mailto:youremail@example.com" target="_blank">✉️</a>
-        <a href="https://instagram.com/yourprofile" target="_blank">📸</a>
-        <a href="https://facebook.com/yourpage" target="_blank">👍</a>
-    </footer>
+<main>
+  <!-- Transparent info box (hidden by default) -->
+  <div id="infoBox" class="info-box hidden"></div>
+</main>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+<footer class="footer-links">
+  <a href="mailto:you@example.com" class="link-text">E‑MAIL</a>
+  <a href="https://instagram.com/yourprofile" target="_blank" class="link-text">INSTAGRAM</a>
+  <a href="https://facebook.com/yourpage" target="_blank" class="link-text">FACEBOOK</a>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
