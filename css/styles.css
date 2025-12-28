@@ -1,0 +1,24 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Angelwish', sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    background-image: url('assets/RS.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+@media (max-width: 768px) {
+    body.mobile-view .studio {
+        display: none;
+    }
+    
+    footer.social-icons > a {
+        margin-right: calc(1vw - 2px);
+    }
+}

@@ -2,40 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Custom font -->
-    <link rel="preload" href="assets/Angelwish.ttf" as="font" type="font/ttf" crossorigin>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Optional: for hot‑reload during development -->
-    <script src="https://cdn.jsdelivr.net/npm/livereload@2.6.3/dist/livereload.js"></script>
+    <title>RS | Studio & Gallery</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Background image – always visible, never hidden behind other elements -->
-    <div class="background"></div>
-
-    <!-- Menu bar (transparent) -->
-    <nav id="menu-bar">
-        <button data-target="studio" class="menu-btn">STUDIO</button>
-        <button data-target="gallery" class="menu-btn">GALLERY</button>
+    <!-- Menu Bar -->
+    <nav class="menu-bar">
+        <a id="studio-btn">STUDIO</a>
+        <span></span>
+        <a id="gallery-btn">GALLERY</a>
     </nav>
 
-    <!-- Info boxes – hidden by default -->
-    <div id="info-studio" class="info-box"></div>
-    <div id="info-gallery" class="info-box"></div>
+    <!-- Overlay Info Boxes -->
+    <div class="overlay studio" data-target="studio-box"></div>
+    <div class="overlay gallery" data-target="gallery-box"></div>
 
-    <!-- Bottom footer links -->
-    <footer id="footer">
-        <a href="mailto:you@example.com"><img src="assets/email.svg" alt="Email"></a>
-        <a href="https://instagram.com/yourprofile" target="_blank"><img src="assets/instagram.svg" alt="Instagram"></a>
-        <a href="https://facebook.com/yourpage" target="_blank"><img src="assets/facebook.svg" alt="Facebook"></a>
+    <!-- Studio Box Content -->
+    <section class="content-box studio">
+        <h2>STUDIO Information</h2>
+        <p>Welcome to our digital studio...</p>
+    </section>
+
+    <!-- Gallery Content -->
+    <section class="content-box gallery">
+        <h2>GALLERY Images</h2>
+        <ul id="gallery-images"></ul>
+    </section>
+
+    <!-- Social Icons -->
+    <footer class="social-icons">
+        <a href="#"><img src="assets/email.svg" alt="Email"></a>
+        <span></span>
+        <a href="#"><img src="assets/instagram.svg" alt="Instagram"></a>
+        <span></span>
+        <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
     </footer>
 
-    <!-- JS -->
-    <script src="js/main.js"></script>
+    <!-- Scripts -->
+    <script src="js/scripts.js"></script>
 </body>
 </html>
