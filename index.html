@@ -1,4 +1,37 @@
-<nav class="menu-bar">
-    <button class="studio-btn">STUDIO</button>
-    <button class="gallery-btn">GALLERY</button>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport for mobile optimisation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RS</title>
+
+    <!-- Custom font -->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Menu bar (transparent) -->
+    <header id="menu-bar">
+        <nav class="container">
+            <a href="#" data-target="studio" class="menu-btn">STUDIO</a>
+            <a href="#" data-target="gallery" class="menu-btn">GALLERY</a>
+        </nav>
+    </header>
+
+    <!-- Info box (hidden by default) -->
+    <section id="info-box"></section>
+
+    <!-- Footer links -->
+    <footer>
+        <div class="container">
+            <a href="mailto:you@example.com" aria-label="Email"><img src="assets/email.svg" alt=""></a>
+            <a href="https://instagram.com/yourprofile" target="_blank" aria-label="Instagram"><img src="assets/instagram.svg" alt=""></a>
+            <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><img src="assets/facebook.svg" alt=""></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

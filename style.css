@@ -1,40 +1,106 @@
-.background {
-    background-image: url('./Assets/RS.png');
-    background-size: cover;       /* Scales image to cover viewport */
-    background-position: center; /* Centers the image */
-    z-index: -1;                 /* Places behind content */
+/* ----------------------------------
+   Global resets & font
+---------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+    height: 100%;
+    font-family: 'Angelwish', sans-serif;
+    color: #fff;
 }
+
+/* Import the custom font */
 @font-face {
     font-family: 'Angelwish';
-    src: url('./Assets/Angelwish.ttf') format('truetype');
+    src: url('../assets/Angelwish.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
-body, button, h1, p {
-    font-family: 'Angelwish', sans-serif; /* Fallback for loading issues */
+
+/* ----------------------------------
+   Background image
+---------------------------------- */
+/* 1. Optimal size:
+     - 1920×1080 (Full HD) works well on most screens.
+     - If you need a higher resolution for very large displays,
+       consider using 3840×2160 and let the browser scale down.
+   2. Use `object-fit: cover` so it never stretches. */
+body {
+    background-image: url('../assets/RS.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-.menu-bar {
+
+/* ----------------------------------
+   Menu bar
+---------------------------------- */
+#menu-bar {
     position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 0;
-    background-color: rgba(255, 255, 255, 0.1); /* 10% opacity */
+    top: 0; left: 0; right: 0;
+    padding: 10px 0;
+    backdrop-filter: blur(5px); /* smooth transparency on modern browsers */
+    background-color: rgba(0,0,0,0.0); /* 100% transparent – only the blur shows */
+    z-index: 10;
+}
+
+#menu-bar .container {
+    display: flex;
+    justify-content: space-between;   /* equal distance to screen edges */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.menu-btn {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------
+   Info box
+---------------------------------- */
+#info-box {
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.33);
+    color: #fff;
+    display: none;      /* hidden by default */
+    z-index: 9;
+}
+
+/* ----------------------------------
+   Footer
+---------------------------------- */
+footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px 0;
+}
+
+footer .container {
     display: flex;
     justify-content: center;
-    gap: 30px; /* Space between buttons */
+    gap: 30px;
 }
 
-.studio-btn,
-.gallery-btn {
-    color: white;
-    background-color: #fff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+footer a img {
+    width: 24px;      /* optimal SVG size – scales automatically */
+    height: 24px;
 }
 
-.studio-btn:hover,
-.gallery-btn:hover {
-    background-color: rgba(255, 255, 255,
+/* ----------------------------------
+   Responsive tweaks
+---------------------------------- */
+@media (max-width: 480px) {
+    .menu-btn { font-size: 1rem; }
+    footer a img { width: 20px; height: 20px; }
+}
