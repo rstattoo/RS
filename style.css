@@ -1,0 +1,57 @@
+/* Root font and background */
+@font-face {
+  font-family: 'Angelwish';
+  src: url('./Assets/Angelwish.ttf') format('truetype');
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Angelwish', sans-serif;
+  color:white;
+  background:url('./Assets/RS.png') no-repeat center center fixed;
+  background-size:cover;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Transparent menu bar */
+.menu-bar{
+  width:100%;
+  padding:1rem;
+  display:flex;
+  justify-content:center;
+  gap:2rem;
+}
+.menu-bar button{
+  font-size:1.5rem;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:white;
+}
+
+/* Overlay boxes */
+.overlay-box{
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(0,0,0,.7);
+  padding:2rem;
+  max-width:80%;
+  text-align:center;
+}
+.hidden{display:none;}
+
+/* Footer icons */
+.footer-icons{
+  margin-top:auto;
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  padding:1rem;
+}
+.footer-icons a{
+  color:white;
+  text-decoration:none;
+  font-size:1rem;
+}
