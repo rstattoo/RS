@@ -197,32 +197,10 @@ body {
        class="footer-link">FACEBOOK</a>
 </footer>
 
-<!-- 4. Background soundtrack – add this before closing body -->
-<audio id="bg-music" src="Assets/MP3/RS.mp3"
-       preload="auto" loop muted></audio>
-
-<button id="music-toggle" style="
-    position:fixed; bottom:1rem; right:1rem;
-    background:#0008; color:white; border:none;
-    padding:.5rem 1rem; font-size:1.2rem;
-    cursor:pointer;">
-    🎵 Play Music
-</button>
-
-<script>
-const music = document.getElementById('bg-music');
-const btn   = document.getElementById('music-toggle');
-
-btn.addEventListener('click', () => {
-    if (music.muted) {          // currently muted → unmute
-        music.muted = false;
-        btn.textContent = '⏸️ Pause Music';
-    } else {                    // currently playing → mute
-        music.muted = true;
-        btn.textContent = '▶️ Play Music';
-    }
-});
-</script>
+<!-- 4. SoundCloud player (replace the URL if you change tracks) -->
+<iframe width="100%" height="166" scrolling="no" frameborder="no"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/sh0tta-743646601/rs&color=%23ff5500&auto_play=false">
+</iframe>
 
 <script>
 /* ----------------------------------------------------------
