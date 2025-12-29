@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RS – Studio & Gallery</title>
+
+<!-- Mobile‑friendly viewport -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preload"
+      href="Assets/Angelwish.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin>
+
+<style>
+/* ----------------------------------------------------------
+   Reset & base styles
+---------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Angelwish', sans-serif;     /* default to custom font */
+}
+
+/* ----------------------------------------------------------
+   Custom font definition
+---------------------------------------------------------- */
+@font-face {
+    font-family: 'Angelwish';
+    src: url('Assets/Angelwish.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ----------------------------------------------------------
+   Background image – always visible, full‑screen
+---------------------------------------------------------- */
+body {
+    background-image: url('Assets/RS.png');
+    background-size: cover;          /* keep aspect ratio */
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;                     /* default text colour */
+}
+
+/* ----------------------------------------------------------
+   Transparent menu bar – 100% transparent, centered
+---------------------------------------------------------- */
+#menu-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-around; /* split into two halves */
+    align-items: center;
+    background-color: rgba(255,255,255,0); /* fully transparent */
+    z-index: 10;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;   /* large text */
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: transform .15s ease-in-out;
+
+    /* Force the Angelwish font on the button */
+    font-family: 'Angelwish', sans-serif;
+}
+
+.nav-button:hover,
+.nav-button:focus {
+    transform: scale(1.05);
+}
+
+/* ----------------------------------------------------------
+   Information boxes
+---------------------------------------------------------- */
+.info-box {
+    position: fixed;          /* center on screen */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.93); /* almost solid black */
+    color: #fff;
+    padding: 2rem;
+    max-width: 90vw;          /* responsive width */
+    max-height: 80vh;         /* responsive height */
+    overflow-y: auto;
+    border-radius: 8px;
+    display: none;            /* hidden by default */
+    z-index: 20;
+
+    /* ----- NEW – font size for the whole box ----- */
+    font-size: 1.2rem;        /* adjust this value to make everything bigger/smaller */
+}
+
+.info-box h2 { margin-top: 0; }
+
+/* Gallery image grid inside the gallery box */
+.image-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    margin-top: 1rem;
+}
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+/* ----------------------------------------------------------
+   Footer links – bottom of the page
+---------------------------------------------------------- */
+#footer-links {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;            /* row layout by default (no stack) */
+    gap: 2rem;                /* space between links */
+}
+
+.footer-link {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor:pointer;
+    transition: opacity .15s ease-in-out;
+}
+.footer-link:hover,
+.footer-link:focus { opacity: 0.8; }
+
+/* ----------------------------------------------------------
+   Responsive tweaks for mobile
+---------------------------------------------------------- */
+@media (max-width: 600px) {
+    .nav-button { font-size: 1.8rem; }
+
+    /* Move the whole menu bar to bottom, above footer links */
+    #menu-bar {
+        top: auto;
+        bottom: 3rem;
+        background-color: transparent;   /* fully transparent on mobile */
+    }
+
+    body {
+        padding-bottom: 6rem;   /* prevent content from being hidden behind the fixed bar */
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 1. Transparent menu bar -->
+<nav id="menu-bar">
+    <button id="studio-btn" class="nav-button">STUDIO</button>
+    <button id="gallery-btn" class="nav-button">GALLERY</button>
+</nav>
+
+<!-- 2. Information boxes (hidden by default) -->
+<div id="studio-box" class="info-box">
+    <h2>Studio</h2>
+    <p>WELCOME TO ROYAL SCUM TATTOO.</p>
+</div>
+
+<div id="gallery-box" class="info-box">
+    <h2>Gallery</h2>
+    <!-- Image grid – add your photos here -->
+    <div class="image-grid">
+        <img src="GALLERY/img1.jpg" alt="Description 1">
+        <img src="GALLERY/img2.jpg" alt="Description 2">
+        <img src="GALLERY/img3.jpg" alt="Description 3">
+    </div>
+</div>
+
+<!-- 3. Footer links -->
+<footer id="footer-links">
+    <a href="mailto:youremail@example.com" class="footer-link">EMAIL</a>
+    <a href="https://instagram.com/yourprofile" target="_blank"
+       class="footer-link">INSTAGRAM</a>
+    <a href="https://facebook.com/yourpage" target="_blank"
+       class="footer-link">FACEBOOK</a>
+</footer>
+
+<script>
+/* ----------------------------------------------------------
+   Utility functions – hide/show the info boxes
+---------------------------------------------------------- */
+const studioBox = document.getElementById('studio-box');
+const galleryBox = document.getElementById('gallery-box');
+
+function hideAll() {
+    studioBox.style.display = 'none';
+    galleryBox.style.display = 'none';
+}
+
+function toggleBox(box) {
+    if (box.style.display === 'block') {
+        box.style.display = 'none';
+    } else {
+        hideAll();
+        box.style.display = 'block';
+    }
+}
+
+/* ----------------------------------------------------------
+   Event listeners for the two menu buttons
+---------------------------------------------------------- */
+document.getElementById('studio-btn').addEventListener('click', e => {
+    e.stopPropagation();          // prevent body click handler from firing
+    toggleBox(studioBox);
+});
+
+document.getElementById('gallery-btn').addEventListener('click', e => {
+    e.stopPropagation();
+    toggleBox(galleryBox);
+});
+
+/* ----------------------------------------------------------
+   Close any open box when clicking anywhere else on the page
+---------------------------------------------------------- */
+document.body.addEventListener('click', () => hideAll());
+</script>
+</body>
+</html>
