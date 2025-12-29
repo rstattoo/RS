@@ -90,7 +90,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0,0,0,0.93); /* 93% opaque black (almost solid) */
+    background-color: rgba(0,0,0,0.93); /* almost solid black */
     color: #fff;
     padding: 2rem;
     max-width: 90vw;          /* responsive width */
@@ -148,7 +148,19 @@ body {
 ---------------------------------------------------------- */
 @media (max-width: 600px) {
     .nav-button { font-size: 1.8rem; }
-    /* No change to #footer-links – it stays side‑by‑side on all sizes */
+
+    /* Move the whole menu bar to bottom, above footer links */
+    #menu-bar {
+        top: auto;            /* cancel the old top value */
+        bottom: 3rem;         /* place it a little higher than the footer */
+        background-color: rgba(0,0,0,0.2);   /* optional shade for visibility */
+    }
+
+    /* Give the body extra padding at the bottom so content
+       isn’t hidden behind the fixed bar when scrolling. */
+    body {
+        padding-bottom: 6rem;   /* adjust if your bar is taller */
+    }
 }
 </style>
 </head>
